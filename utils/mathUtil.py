@@ -9,6 +9,9 @@ import math
 
 def softmax(w):
     maxW = np.max(w)
+    if type(maxW) == np.ndarray:
+        w=np.hstack(w)
+        maxW = np.max(w)
     e = np.exp(w-maxW)
     dist = e/np.sum(e)
     return dist
